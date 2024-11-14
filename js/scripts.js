@@ -1,3 +1,4 @@
+let pokemonRepository = (function () {
 //array list for pokemon
 let pokemonList = [
   {
@@ -85,16 +86,38 @@ let pokemonList = [
     spDefense: 64,
   },
 ];
-    // Iterate over the Pokémon list
-    for (let i = 0; i < pokemonList.length; i++){
-    let pokemon = pokemonList[i];
-    let heightInMeters = parseFloat(pokemon.height.slice(0, -1));
-    document.write(pokemon.name + " (height" + pokemon.height + ")");
-    if (heightInMeters > 1.7) {
-    document.write(" - Wow, that's big!<br>");
-    } else {
-    document.write("<br>");
-    }
-  }
-      
 
+function getAll() {
+  return pokemonList;
+}
+
+function add(pokemon) {
+  pokemonList.push(pokemon);
+}
+
+return {
+  getAll: getAll,
+  add: add
+};
+  })();
+
+  let pokemons= pokemonRepository.getAll();
+
+  pokemons.forEach(pokemon => {
+
+    document.write( "   " + pokemon.name + "  " + pokemon.height + "   " + pokemon.types + "   ");
+    if (pokemon.height > 1.7) {
+      document.write("-Wow, that's big!" + "\n");
+    }
+    document.body.style.backgroundImage = "url('images/background.jpg')";
+  });
+
+    //Iterate over the Pokémon list
+ //   for (let i = 0; i < pokemonList.length; i++){
+ //   let pokemon = pokemonList[i];
+//    let heightInMeters = pokemon.height.slice(0, -1);
+ //   document.write(pokemon.name + " (height:" + pokemon.height + " tall)\n");
+  //  if (heightInMeters > 1.7) {
+//    document.write(" - Wow, that's big!" + "\n");
+ //   }
+ // }
