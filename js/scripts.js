@@ -107,7 +107,7 @@ return {
 
     document.write( "   " + pokemon.name + "  " + pokemon.height + "   " + pokemon.types + "   ");
     if (pokemon.height > 1.7) {
-      document.write("-Wow, that's big!" + "\n");
+      document.write("-Wow, that's big!<br>");
     }
     document.body.style.backgroundImage = "url('images/background.jpg')";
   });
