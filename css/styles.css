@@ -30,4 +30,10 @@ body, .permanent-marker-regular {
     font-size:xx-large;
     padding:20px;
  }
-  
+
+ ul {
+  list-style-type: none;
+  padding: 0; /* Optional: Remove default padding */
+  margin: 0; /* Optional: Remove default margin */
+}
+

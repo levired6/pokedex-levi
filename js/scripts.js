@@ -91,33 +91,55 @@ function getAll() {
   return pokemonList;
 }
 
-function add(pokemon) {
-  pokemonList.push(pokemon);
+function add(addPokemon) {
+  let keysNeeded = ['name','height','types'];
+  if (
+    typeof addPokemon === 'object' &&
+    Object.keys(addPokemon).length === keysNeeded.length &&
+    addPokemon !== null &&
+    addPokemon.name !== undefined &&
+    addPokemon.height !== undefined &&
+    addPokemon.type !== undefined
+) {
+    pokemonList.push(addPokemon);
+  } else {
+    console.error ('Please provide an object with name, height and type of properties')
+  }
+}
+
+function addListenerToButton(button, pokemon) {
+  button.addEventListener('click', function () {
+    showDetails(pokemon);
+  });
+}
+function addListItem(pokemon) {
+  let pokemonList= document.querySelector('.pokemon-list');
+  let listItemPokemon = document.createElement('li');
+  let button = document.createElement('button');
+
+  button.innerText = pokemon.name;
+  button.classList.add('button-class');
+  addListenerToButton(button, pokemon);
+  listItemPokemon.appendChild(button);
+  pokemonList.appendChild(listItemPokemon);
+}
+
+function showDetails(pokemon) {
+  console.log(pokemon);
 }
 
 return {
   getAll: getAll,
-  add: add
-};
-  })();
+  add: add,
+  addListItem: addListItem,
+  showDetails: showDetails
+}
+})();
 
-  let pokemons= pokemonRepository.getAll();
-
-  pokemons.forEach(pokemon => {
-
-    document.write( "   " + pokemon.name + "  " + pokemon.height + "   " + pokemon.types + "   ");
-    if (pokemon.height > 1.7) {
-      document.write("-Wow, that's big!<br>");
-    }
-    document.body.style.backgroundImage = "url('images/background.jpg')";
-  });
-
-    //Iterate over the Pokémon list
- //   for (let i = 0; i < pokemonList.length; i++){
- //   let pokemon = pokemonList[i];
-//    let heightInMeters = pokemon.height.slice(0, -1);
- //   document.write(pokemon.name + " (height:" + pokemon.height + " tall)\n");
-  //  if (heightInMeters > 1.7) {
-//    document.write(" - Wow, that's big!" + "\n");
- //   }
- // }
+function findName(nameList, nameSearched) {
+  return nameList.filter((addpokemon) =>
+    addPokemon.name.toLowerCase().includes(nameSearched.toLowerCase())
+  );
+}
+pokemonRepository.getAll().forEach(pokemonRepository.addListItem);
+document.body.style.backgroundImage = "url('images/background.jpg')";
