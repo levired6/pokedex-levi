@@ -112,22 +112,22 @@ body, .permanent-marker-regular {
 
 /* Styling for modal */
 #modal-container.is-visible {
-  left: 30%;
-  top: 30%;
+  position: fixed;
+  padding: 20px;
   box-sizing: border-box;
-  width: 40%;
-  height: 60%;
   /*background: rgb(182, 179, 179);*/
-  z-index: 999;
-  overflow: auto;
-  display:grid;
+  top: 0;
+  left: 30%;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
   text-align: center;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 2s;
   animation-name: animatetop;
   animation-duration: 2s;
 }
-
 
 /* Animation */
 @-webkit-keyframes animatetop {

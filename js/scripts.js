@@ -25,6 +25,7 @@ function addListItem(pokemon) {
   let button = document.createElement("button");
   button.innerText = pokemon.name;
   button.classList.add("button-class");
+  button.style.backgroundImage = "url('images/wall-background-old-texture.jpg')";
   button.addEventListener('click',function (){
     showDetails(pokemon);
   });
@@ -130,3 +131,4 @@ pokemonRepository.loadList().then(function () {
   });
 });
 document.body.style.backgroundImage = "url('images/background.jpg')";
+button.style.backgroundimage = "url('images/buttonbackground.png')";
