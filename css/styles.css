@@ -74,7 +74,7 @@ body, .permanent-marker-regular {
    overflow: auto; 
    
    /* this is used to center the modal */
-   display: grid;
+   display: grid; 
    text-align: center;
  }
 
