@@ -25,7 +25,7 @@ function addListItem(pokemon) {
   let button = document.createElement("button");
   /*listPokemon.classList.add("list-group-item");*/
   button.innerText = pokemon.name;
-  button.classList.add("btn-md", "btn-primary");/*by adding "w-100" would stretch the length of the button*/
+  button.classList.add("btn-md", "btn-primary");
   button.style.backgroundImage = "url('images/leather-background.jpg')";
   button.addEventListener('click',function (){
     showDetails(pokemon);
