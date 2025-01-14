@@ -23,10 +23,10 @@ function addListItem(pokemon) {
   let pokemonList = document.querySelector('.pokemon-list');
   let listPokemon = document.createElement("li");
   let button = document.createElement("button");
-  listPokemon.classList.add("list-group-item");
+  /*listPokemon.classList.add("list-group-item");*/
   button.innerText = pokemon.name;
-  button.classList.add("btn", "btn-primary");
-  button.style.backgroundImage = "url('images/wall-background-old-texture.jpg')";
+  button.classList.add("btn-md", "btn-primary");/*by adding "w-100" would stretch the length of the button*/
+  button.style.backgroundImage = "url('images/leather-background.jpg')";
   button.addEventListener('click',function (){
     showDetails(pokemon);
   });
@@ -103,4 +103,3 @@ pokemonRepository.loadList().then(function () {
   });
 });
 document.body.style.backgroundImage = "url('images/background.jpg')";
-button.style.backgroundimage = "url('images/buttonbackground.png')";
