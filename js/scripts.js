@@ -101,5 +101,31 @@ pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
-});
+
+   // Get references to search bar input and Pokemon list
+   let searchInput = document.querySelector('.form-control[type="search"]');
+   let pokemonList = document.querySelector('.pokemon-list');
+ 
+   // Add event listener to the input field's 'input' event
+   searchInput.addEventListener('input', function(event) { 
+     let searchTerm = searchInput.value.toLowerCase(); 
+ 
+     if (searchTerm.trim() === '') { 
+       // If search term is empty, display all Pokemon
+       pokemonList.innerHTML = ''; 
+       pokemonRepository.getAll().forEach(function(pokemon) {
+         pokemonRepository.addListItem(pokemon);
+       });
+     } else {
+       // Filter the list based on the search term
+       let filteredList = pokemonRepository.getAll().filter(function(pokemon) {
+         return pokemon.name.toLowerCase().includes(searchTerm);
+       });
+       pokemonList.innerHTML = ''; 
+       filteredList.forEach(function(pokemon) {
+         pokemonRepository.addListItem(pokemon);
+       });
+     }
+   });
+ });
 document.body.style.backgroundImage = "url('images/background.jpg')";
