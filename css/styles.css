@@ -58,7 +58,7 @@ body, .permanent-marker-regular {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust as needed */
   grid-gap: 10px; /* Spacing between buttons */
     overflow-y: auto; /* Enable vertical scrolling */
-    height: 400px; /* Adjust height as needed */
+    height: 600px; /* Adjust height as needed */
     list-style: none; /* Remove bullet points */
     padding: 0; /* Remove default list padding */ 
 }

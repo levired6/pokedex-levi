@@ -23,13 +23,13 @@ function addListItem(pokemon) {
   let pokemonList = document.querySelector('.pokemon-list');
   let listPokemon = document.createElement("li");
   let button = document.createElement("button");
-  /*listPokemon.classList.add("list-group-item");*/
   button.innerText = pokemon.name;
   button.classList.add("btn-md", "btn-primary");
   button.style.backgroundImage = "url('images/leather-background.jpg')";
   button.addEventListener('click',function (){
     showDetails(pokemon);
   });
+ 
   listPokemon.appendChild(button);
   pokemonList.appendChild(listPokemon);
   button.addEventListener("click", function(event){
@@ -38,22 +38,27 @@ function addListItem(pokemon) {
 }
 
 /* start of modal javascript */
-function showModal(title, text, img) {
+function showModal(title, height, img, weight, types) {
   let modalTitle = document.querySelector('#pokemonModalLabel');
-  let modalBody = document.querySelector('.modal-body');
   let pokemonHeight = document.querySelector("#pokemonHeight");
-            let pokemonImage = document.querySelector("#pokemonImage");
+  let pokemonImage = document.querySelector("#pokemonImage");
+  let pokemonWeight = document.querySelector("#pokemonWeight");
+  let pokemonTypes = document.querySelector("#pokemonTypes");
       
-            modalTitle.innerText = title;
-            pokemonHeight.innerText = text;
-            pokemonImage.setAttribute('src', img);
-          }
+  modalTitle.innerText = title;
+  pokemonHeight.innerText = "Height: " + height + "ft";
+  pokemonWeight.innerText = "Weight: " + weight + "lbs";
+  pokemonImage.setAttribute('src', img);
+  pokemonTypes.innerText = "Type(s): " + types.join(',');
+  }
 
 function showDetails(pokemon) {
   loadDetails(pokemon).then(function () {
     showModal( pokemon.name,
       "Height: " + pokemon.height,
-      pokemon.imageURL);
+      pokemon.imageURL,
+    pokemon.weight,
+  pokemon.types);
       $('#pokemonModal').modal('show');
   });
 }
@@ -73,16 +78,19 @@ function loadList() {
     console.error(e);
   })
 }
+
 function loadDetails(item) {
   let url = item.detailsURL;
   return fetch(url).then(function (response) {
     return response.json();
   }).then(function (details) {
     item.imageURL = details.sprites.front_default;
-    item.height= details.height;
-    item.types = details.types;
+    item.height = details.height;
+    item.weight = details.weight;
+    item.types = details.types.map((type) => type.type.name);
+    return item;
   }).catch(function (e) {
-    console.error(e)
+    console.error(e);
   });
 }
 
@@ -128,4 +136,5 @@ pokemonRepository.loadList().then(function () {
      }
    });
  });
-document.body.style.backgroundImage = "url('images/background.jpg')";
+
+ document.body.style.backgroundImage = "url('images/background.jpg')";
