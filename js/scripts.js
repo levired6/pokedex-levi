@@ -55,7 +55,7 @@ function showModal(title, height, img, weight, types) {
 function showDetails(pokemon) {
   loadDetails(pokemon).then(function () {
     showModal( pokemon.name,
-      "Height: " + pokemon.height,
+       pokemon.height,
       pokemon.imageURL,
     pokemon.weight,
   pokemon.types);
