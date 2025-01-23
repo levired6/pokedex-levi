@@ -1,6 +1,5 @@
 /* background image style */
   body {
-    background-image: url('images/background.jpg'); /* Same path from JS */
     background-size: auto;
     background-repeat: repeat;
     background-position: auto center; /* Optional: Center the image */
