@@ -20,7 +20,7 @@ function getAll() {
 }
 
 function addListItem(pokemon) {
-  let pokemonList = document.querySelector('.pokemon-list');
+ let pokemonList = document.querySelector('.pokemon-list');
   let listPokemon = document.createElement("li");
   let button = document.createElement("button");
   button.innerText = pokemon.name;
@@ -29,7 +29,7 @@ function addListItem(pokemon) {
   button.addEventListener('click',function (){
     showDetails(pokemon);
   });
- 
+
   listPokemon.appendChild(button);
   pokemonList.appendChild(listPokemon);
   button.addEventListener("click", function(event){
