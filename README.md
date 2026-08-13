@@ -1,13 +1,54 @@
-# Pokedex
+# Pokédex
 
-# Project description
+A web application that allows users to explore and view detailed information about Pokémon using the PokéAPI.
 
-Objective:  
-To build a small web application with HTML, CSS, and JavaScript that  loads data from an external API  (Application Programming Interface) and enables the viewing of data points in detail.
-Users should be able to view a list of data and see more details for a given data item on demand. 
+## 📋 Table of Contents
 
-# Directions
-Using the page either scroll through the names provided or use the navigation Finder item search bar to type in a specific name of a character filtering out all others. Then click on the name to have a modal appear with information and image of your character. To reset, close the modal or press the x in the search bar to start a new search.
+- [Project Description](#project-description)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [How to Use](#how-to-use)
+- [API](#api)
+- [Project Structure](#project-structure)
+- [Future Enhancements](#future-enhancements)
+- [License](#license)
 
-# API
-The API used for the page details can be found here: 'https://pokeapi.co/api/v2/pokemon/?limit=150'
+## 📝 Project Description
+
+This Pokédex is a small web application built with HTML, CSS, and JavaScript that loads Pokémon data from an external API (Application Programming Interface). The application enables users to view a comprehensive list of Pokémon and explore detailed information about each one.
+
+**Objective:** To demonstrate proficiency in:
+- Working with external APIs
+- DOM manipulation with JavaScript
+- Building responsive user interfaces
+- Implementing search and filtering functionality
+
+## ✨ Features
+
+- **Pokémon List**: Browse through a list of 150 Pokémon
+- **Search Functionality**: Use the navigation search bar to filter Pokémon by name
+- **Detailed View**: Click on any Pokémon to view comprehensive details
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Real-time Filtering**: Instantly filter results as you type
+
+## 🛠️ Technologies Used
+
+- **HTML5** - Structure and markup
+- **CSS3** - Styling and layout
+- **JavaScript (ES6)** - Interactivity and API integration
+- **PokéAPI** - External data source for Pokémon information
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- A modern web browser (Chrome, Firefox, Safari, Edge)
+- No additional installations required
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/levired6/pokedex-levi.git
+   cd pokedex-levi
